@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Retail Innovations Prototype</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <h1>Retail Innovations</h1>
+    <p class="tagline">Prototype page for a retail digital solution.</p>
+  </header>
+
+  <main class="container">
+
+    <!-- ===================================================== -->
+    <!-- SECTION 1: HTML PRACTICE AREA (BLAND, TEACHING)         -->
+    <!-- This section is for learning HTML only                 -->
+    <!-- ===================================================== -->
+    <section class="card">
+      <h2>HTML Practice Area</h2>
+      <p class="help-text">
+        This section is only for learning HTML fundamentals. It is not part of the final Retail Innovations solution.
+      </p>
+
+      <section class="sub-card">
+        <h3>Practice 1: Headings and paragraphs</h3>
+        <p>Add a short paragraph below this line explaining what HTML does in one sentence.</p>
+        <!-- TODO PRACTICE: Add a paragraph here -->
+        <p>HTML (HyperText Markup Language) is the standard language for creating web pages and web applications. Focuses on the structures of the webpage.</p>
+      </section>
+
+      <section class="sub-card">
+        <h3>Practice 2: Lists</h3>
+        <p>Add a bullet list with three generic website features (not retail).</p>
+        <!-- TODO PRACTICE: Add a <ul> with three <li> items -->
+        <ul>
+          <li>Responsive design for mobile and desktop</li>
+          <li>Navigation menu for easy access to different sections</li>
+          <li>Contact form for user inquiries</li>
+        </ul>
+      </section>
+
+      <section class="sub-card">
+        <h3>Practice 3: Simple form</h3>
+        <p>Create a small form with a label and text input, plus a dropdown and a button.</p>
+
+        <form id="practiceForm" novalidate>
+          <div class="grid">
+            <div class="field">
+              <label for="practiceName">Name</label>
+              <input type="text" id="practiceName" name="practiceName" placeholder="Example: Sam">
+              <p class="field-hint">This is practice only.</p>
+            </div>
+
+            <div class="field">
+              <label for="practiceChoice">Choose an option</label>
+              <select id="practiceChoice" name="practiceChoice">
+                <option value="">Choose one</option>
+                <option value="a">Option A</option>
+                <option value="b">Option B</option>
+              </select>
+              <p class="field-hint">This is practice only.</p>
+            </div>
+
+            <div class="field field-wide">
+              <button type="button">Submit (does nothing yet)</button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <section class="sub-card">
+        <h3>Practice 4: Simple table</h3>
+        <p>Add a table with three rows of made-up data (not retail). Use headings.</p>
+        <!-- TODO PRACTICE: Add a <table> with <th> headings and 3 rows -->
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Price (£)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Notebook</td>
+              <td>5</td>
+              <td>12.50</td>
+            </tr>
+            <tr>
+              <td>Pen</td>
+              <td>10</td>
+              <td>3.00</td>
+            </tr>
+            <tr>
+              <td>Backpack</td>
+              <td>2</td>
+              <td>45.00</td>
+            </tr>
+          </tbody>
+      </section>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- SECTION 2: RETAIL INNOVATIONS (SCENARIO APPLICATION)   -->
+    <!-- Students apply the same HTML skills here               -->
+    <!-- ===================================================== -->
+    <section class="card">
+      <h2>Retail Innovations Digital Solution</h2>
+      <p class="help-text">
+        You are building a prototype page for Retail Innovations Ltd. The aim is to simplify shopping, provide analytics,
+        and support loyalty programmes.
+      </p>
+
+      <section class="sub-card">
+        <h3>Company overview</h3>
+        <p>
+          Retail Innovations Ltd wants a digital solution that improves online shopping, provides useful retail analytics,
+          and supports standard loyalty programmes.
+        </p>
+        <!-- TODO: Add one more sentence explaining why this matters to customers -->
+        <p>
+          This matters to customers because it enhances their shopping experience by making it easier to find products,
+          understand purchasing trends, and benefit from rewards.
+        </p>
+      </section>
+
+      <section class="sub-card">
+        <h3>Key features</h3>
+        <ul>
+          <li>Enhanced product search and filter</li>
+          <li>Retail analytics dashboard</li>
+          <li>Standard loyalty programmes</li>
+        </ul>
+        <!-- TODO: Add a short paragraph under the list explaining one feature in more detail -->
+        <p>
+          The enhanced product search and filter feature allows customers to quickly find products by entering search terms,
+          selecting categories, and specifying price ranges. This improves the overall shopping experience by making it easier
+          to locate desired items.
+      </section>
+
+      <section class="sub-card">
+        <h3>Enhanced product search and filter (HTML only)</h3>
+        <p class="help-text">This is a prototype form. It will not search yet. Focus on correct HTML.</p>
+
+        <form id="searchForm" novalidate>
+          <div class="grid">
+            <div class="field">
+              <label for="searchTerm">Search term</label>
+              <input type="text" id="searchTerm" name="searchTerm" placeholder="Example: trainers">
+              <p class="field-hint">What product is the customer looking for?</p>
+            </div>
+
+            <div class="field">
+              <label for="category">Category</label>
+              <select id="category" name="category">
+                <option value="">Choose one</option>
+                <option value="clothing">Clothing</option>
+                <option value="electronics">Electronics</option>
+                <option value="home">Home</option>
+                <option value="sports">Sports</option>
+              </select>
+              <p class="field-hint">Helps customers filter quickly.</p>
+            </div>
+
+            <div class="field">
+              <label for="minPrice">Minimum price (£)</label>
+              <input type="number" id="minPrice" name="minPrice" min="0" step="1" value="0">
+              <p class="field-hint">Use numbers only.</p>
+            </div>
+
+            <div class="field">
+              <label for="maxPrice">Maximum price (£)</label>
+              <input type="number" id="maxPrice" name="maxPrice" min="0" step="1" value="100">
+              <p class="field-hint">Use numbers only.</p>
+            </div>
+
+            <div class="field field-wide">
+              <button type="button">Search (prototype)</button>
+              <button type="reset" class="secondary">Clear</button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <section class="sub-card">
+        <h3>Retail analytics dashboard (HTML table)</h3>
+        <p class="help-text">
+          This table represents the type of summary data retailers might see. Your job is to structure it correctly.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Product</th>
+              <th scope="col">Units sold</th>
+              <th scope="col">Revenue (£)</th>
+              <th scope="col">Stock level</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Wireless headphones</td>
+              <td>42</td>
+              <td>2100</td>
+              <td>18</td>
+            </tr>
+            <tr>
+              <td>Running trainers</td>
+              <td>31</td>
+              <td>2480</td>
+              <td>9</td>
+            </tr>
+            <tr>
+              <td>Reusable water bottle</td>
+              <td>58</td>
+              <td>870</td>
+              <td>40</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- TODO: Add one more row of your own data -->
+            <tr>
+              <td>Smartwatch</td>
+              <td>25</td>
+              <td>3750</td>
+              <td>12</td>
+            </tr>
+      </section>
+
+      <section class="sub-card">
+        <h3>Standard loyalty programmes (HTML form)</h3>
+        <p class="help-text">
+          Retailers want a standard loyalty programme with predefined reward structures.
+          Create a clear form using labels and suitable input types.
+        </p>
+
+        <form id="loyaltyForm" novalidate>
+          <div class="grid">
+            <div class="field">
+              <label for="customerName">Customer name</label>
+              <input type="text" id="customerName" name="customerName" placeholder="Example: Aisha Khan">
+            </div>
+
+            <div class="field">
+              <label for="loyaltyTier">Loyalty tier</label>
+              <select id="loyaltyTier" name="loyaltyTier">
+                <option value="">Choose one</option>
+                <option value="bronze">Bronze</option>
+                <option value="silver">Silver</option>
+                <option value="gold">Gold</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" placeholder="example@email.com">
+              <p class="field-hint">This helps contact customers about rewards.</p>
+            </div>
+
+            <div class="field">
+              <label for="points">Starting points</label>
+              <input type="number" id="points" name="points" min="0" step="1" value="0">
+            </div>
+
+            <div class="field field-wide">
+              <button type="button">Save loyalty customer (prototype)</button>
+            </div>
+          </div>
+        </form>
+
+        <!-- TODO: Add a short paragraph describing the reward structure for one tier -->
+        <p>
+          The Gold tier rewards customers with 2 points for every £1 spent, exclusive discounts, and early access to sales events.
+        </p>
+      </section>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Retail Innovations prototype page. HTML first, CSS later.</p>
+  </footer>
+</body>
+</html>

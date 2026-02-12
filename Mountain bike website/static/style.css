@@ -1,0 +1,276 @@
+/* ===========================================================
+   Dirt Cycles — MTB Theme
+   Earthy palette, topo pattern, tough typography, accessible
+   =========================================================== */
+
+:root{
+  /* Colors — forest, slate, soil, accent blaze orange */
+  --forest-900:#0f1b14;
+  --forest-800:#14241b;
+  --forest-700:#1a2d23;
+  --forest-600:#20372c;
+  --slate-900:#0f1416;
+  --slate-800:#182024;
+  --slate-700:#1f2a30;
+  --soil-700:#5a412d;
+  --soil-600:#6a4b32;
+  --sand-200:#e7e0cf;
+  --mist-100:#f4f7f5;
+
+  --text:#f3f7f4;
+  --text-dim:#c9d4cf;
+  --text-dark:#1b221f;
+
+  --accent:#e87722;   /* blaze orange */
+  --accent-2:#78b390; /* sage green for secondary highlights */
+
+  --border:1px solid rgba(255,255,255,0.12);
+  --border-strong:1px solid rgba(255,255,255,0.22);
+
+  --radius:12px;
+  --radius-lg:16px;
+
+  --shadow-sm:0 6px 16px rgba(0,0,0,0.25);
+  --shadow:0 14px 34px rgba(0,0,0,0.35);
+  --shadow-lg:0 24px 64px rgba(0,0,0,0.45);
+
+  --focus:3px solid #fff;
+  --focus-offset:2px;
+}
+
+/* ---- Base / Topographic background ---- */
+*,
+*::before,
+*::after{ box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  color:var(--text);
+  background:
+    /* subtle topo lines */
+    url("data:image/svg+xml;utf8,\
+    <svg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'>\
+      <defs>\
+        <pattern id='topo' width='240' height='240' patternUnits='userSpaceOnUse'>\
+          <path d='M0 120c40-40 80-40 120 0s80 40 120 0' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'/>\
+          <path d='M0 60c50-35 90-35 120 0s70 35 120 0' fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='0.8'/>\
+          <path d='M0 180c50-35 90-35 120 0s70 35 120 0' fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='0.8'/>\
+        </pattern>\
+      </defs>\
+      <rect width='100%' height='100%' fill='url(%23topo)'/>\
+    </svg>"),
+    linear-gradient(180deg, var(--forest-900), var(--forest-700));
+  background-attachment: fixed, scroll;
+  font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", sans-serif;
+  line-height: 1.6;
+}
+
+/* subtle noise overlay */
+body::after{
+  content:"";
+  position:fixed; inset:0;
+  pointer-events:none;
+  background-image:url("data:image/svg+xml;utf8,\
+  <svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'>\
+    <filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter>\
+    <rect width='100%' height='100%' filter='url(%23n)' opacity='0.04'/>\
+  </svg>");
+}
+
+/* ---- Layout ---- */
+.container{ width:min(1100px, 100%); margin-inline:auto; padding-inline: clamp(16px, 4vw, 28px); }
+
+.site-header, .site-footer{
+  background: linear-gradient(180deg, var(--slate-800), var(--slate-900));
+  border-bottom: var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.site-header .bar{
+  display:flex; gap:18px; align-items:center; justify-content:space-between;
+  padding-block:14px;
+}
+
+.brand{
+  display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text);
+  font-weight:800; letter-spacing:.02em;
+}
+.brand img{ width:36px; height:36px; display:block; }
+
+.nav{
+  display:flex; gap:14px; flex-wrap:wrap;
+}
+.nav a{
+  color:var(--text-dim); text-decoration:none; padding:8px 12px; border-radius:999px;
+  background: transparent; border:1px solid transparent;
+}
+.nav a:hover{ color:var(--text); border-color: rgba(255,255,255,0.15); }
+
+.skip-link{
+  position:absolute; left:-9999px; top:8px; padding:10px 14px; border-radius:999px;
+  background:#000; color:#fff; z-index:999;
+}
+.skip-link:focus{ left:8px; outline:var(--focus); outline-offset:var(--focus-offset); }
+
+/* ---- Hero ---- */
+.hero{
+  padding-block: clamp(28px, 6vw, 56px);
+}
+.hero h1{
+  margin:0 0 8px 0;
+  font-size: clamp(28px, 4.6vw, 48px);
+  letter-spacing:-0.02em;
+}
+.lead{ color:var(--text-dim); margin:0; }
+
+/* ---- Cards & Sections ---- */
+.section{ padding-block: clamp(22px, 4.2vw, 40px); }
+
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03)),
+              var(--forest-800);
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  padding: clamp(16px, 3vw, 28px);
+  box-shadow: var(--shadow);
+  margin-bottom: clamp(16px, 2vw, 24px);
+}
+.card.subtle{
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)),
+              var(--forest-700);
+  border:1px dashed rgba(255,255,255,0.18);
+  box-shadow: var(--shadow-sm);
+}
+
+.card h2, .card h3{ margin-top:0; }
+
+/* ---- Content helpers ---- */
+.badge{
+  display:inline-block; padding:4px 10px; border-radius:999px; font-size:12px; font-weight:700;
+  background: rgba(232,119,34,0.14); color:#ffd8b9; border:1px solid rgba(232,119,34,0.35);
+}
+.kv{ display:grid; gap:10px; grid-template-columns: 160px 1fr; }
+.kv div{ padding:6px 0; border-bottom: 1px dotted rgba(255,255,255,0.12); }
+.kv div strong{ color:#ffe8d1; }
+
+/* ---- Grid ---- */
+.grid{ display:grid; gap: clamp(16px, 2.5vw, 28px); }
+.grid-2{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+.grid-3{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+@media (max-width: 900px){ .grid-2, .grid-3{ grid-template-columns: 1fr; } }
+
+/* ---- Forms ---- */
+.field{ margin-bottom: 16px; }
+label{ display:block; font-weight:700; margin-bottom:6px; }
+input, select, textarea{
+  width:100%; padding:12px 14px; border-radius:10px;
+  border:1px solid rgba(255,255,255,0.18);
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)), var(--slate-800);
+  color: var(--text);
+}
+input:focus, select:focus, textarea:focus{ outline: var(--focus); outline-offset: var(--focus-offset); }
+.hint{ margin-top:6px; color:var(--text-dim); }
+.error{ margin-top:6px; color:#ffb4a8; font-weight:700; }
+
+.actions{ display:flex; gap:10px; flex-wrap:wrap; }
+button{
+  padding:12px 16px; border-radius:999px; border:1px solid rgba(255,255,255,0.22);
+  background: linear-gradient(180deg, #263a31, #1b2a24);
+  color:var(--text); font-weight:800; letter-spacing:.02em; cursor:pointer;
+  box-shadow: var(--shadow-sm);
+}
+button:hover{ border-color:#8fd3a9; box-shadow: var(--shadow); }
+button.ghost{ background:transparent; border:1px solid rgba(255,255,255,0.22); }
+button.ghost:hover{ background: rgba(255,255,255,0.06); }
+
+/* ---- Product grid ---- */
+.product-controls{
+  display:grid; gap:14px;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  margin-bottom: 18px;
+}
+@media (max-width: 900px){ .product-controls{ grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px){ .product-controls{ grid-template-columns: 1fr; } }
+
+.product-grid{ display:grid; gap:16px; grid-template-columns: repeat(3, minmax(0,1fr)); }
+@media (max-width: 980px){ .product-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 640px){ .product-grid{ grid-template-columns: 1fr; } }
+
+.product-card{
+  display:flex; flex-direction:column; gap:10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)), var(--forest-700);
+  border: var(--border); border-radius: 14px; padding: 14px;
+  box-shadow: var(--shadow-sm);
+}
+.product-card img{ width:100%; height:220px; object-fit:cover; border-radius:10px; }
+.product-meta{ display:flex; gap:8px; flex-wrap:wrap; }
+.price{ font-weight:900; color:#ffd9c0; font-size:1.1rem; }
+.specs{ color:var(--text-dim); font-size:.95rem; }
+
+/* ---- Cart chip ---- */
+.cart-chip{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:6px 10px; border-radius:999px;
+  background: rgba(120,179,144,0.14); color:#ccf0dd; border:1px solid rgba(120,179,144,0.35);
+  font-weight:800;
+}
+
+/* ---- Footer ---- */
+.site-footer{ border-top:var(--border); padding:18px 0; color:var(--text-dim); }
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce){
+  *{ transition:none !important; animation: none !important; }
+  html{ scroll-behavior:auto; }
+}
+
+/* ===================================================
+   Dirt Cycles — Cart Page Styles
+   =================================================== */
+
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cart-item {
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)), var(--forest-800);
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.cart-item-info h3 {
+  margin: 0 0 4px 0;
+  font-size: 1.3rem;
+}
+
+.cart-item-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.cart-item-controls input {
+  width: 70px;
+}
+
+.cart-summary {
+  padding: 18px;
+  margin-top: 24px;
+  background: rgba(255,255,255,0.06);
+  border-radius: var(--radius);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: var(--border);
+}

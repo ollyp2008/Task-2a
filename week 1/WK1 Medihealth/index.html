@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>MediHealth Appointments</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+  <!-- Centered portrait form -->
+  <div class="center-screen">
+    <section class="portrait-card" aria-labelledby="title">
+      <header class="header">
+      <div class="logo-badge" aria-hidden="true">
+      <img src="Medihealth_logo.png" alt="Company Logo">
+      </div>
+        <h1 id="title">MediHealth Appointments</h1>
+      </header>
+      <p class="subtitle">Book and review upcoming visits</p>
+      <div class="divider" role="separator" aria-hidden="true"></div>
+
+      <form id="appointment-form" novalidate>
+        <div class="form-field">
+          <label class="required" for="patient_name">Patient Name</label>
+          <input type="text" id="patient_name" name="patient_name" required>
+        </div>
+
+        <div class="form-field">
+          <label class="required" for="patient_email">Patient Email</label>
+          <input type="email" id="patient_email" name="patient_email" required>
+        </div>
+
+        <div class="form-field">
+          <label class="required" for="appointment_at">Appointment Date</label>
+          <input type="datetime-local" id="appointment_at" name="appointment_at" required>
+        </div>
+
+        <div class="form-field">
+          <label class="required" for="reason_for_visit">Reason For Visit</label>
+          <input type="text" id="reason_for_visit" name="reason_for_visit" required>
+        </div>
+
+        <div class="actions">
+          <button type="submit">Book appointment</button>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <!-- Centered portrait appointments list (optional) -->
+  <h2 class="section-title">All appointments</h2>
+  <div class="center-screen">
+    <section class="appointments-card">
+      <ul id="appointments-list"></ul>
+    </section>
+  </div>
+
+  <script src="static/app.js"></script>
+</body>
+</html>

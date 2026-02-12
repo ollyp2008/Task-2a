@@ -1,0 +1,122 @@
+/* Starter CSS: clean and simple. Students can customise later. */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+}
+
+.site-header, .site-footer {
+  padding: 16px;
+}
+
+.site-header h1 {
+  margin: 0 0 6px 0;
+}
+
+.tagline {
+  margin: 0;
+  opacity: 0.85;
+}
+
+.container {
+  padding: 16px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.help-text {
+  margin-top: 0;
+  opacity: 0.85;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.checkbox-line {
+  font-weight: 600;
+}
+
+.field input[type="text"],
+.field input[type="number"],
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+}
+
+.field-hint {
+  margin: 6px 0 0 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.field-wide {
+  grid-column: 1 / -1;
+}
+
+.button-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: #fff;
+  color: #333;
+}
+
+.output-box {
+  margin: 10px 0 0 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.result-box {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+/* Simple responsive improvement */
+@media (min-width: 700px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+  .results-grid { grid-template-columns: 1fr 1fr; }
+}

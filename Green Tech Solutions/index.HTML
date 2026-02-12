@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GreenTech Solutions – Sustainable Living Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Your existing stylesheet -->
+    <link rel="stylesheet" href="static/style.css">
+
+    <!-- Minimal CSS needed for right-aligned Logout + visibility toggle -->
+    <style>
+        /* Lay out the header: logo | main nav | auth (right) */
+        .site-header {
+            display: grid;
+            grid-template-columns: 1fr auto auto; /* left fills, then nav, then auth on the right */
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* Keep auth controls on the far right and inline */
+        .auth-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: auto; /* safety in case header layout changes */
+        }
+
+        /* Helper class to toggle visibility from JS */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Logout button look (uses your .btn base if present) */
+        .btn.logout-btn {
+            background-color: #ff4e4e;
+            color: #fff;
+        }
+        .btn.logout-btn:hover {
+            background-color: #d93636;
+            transform: scale(1.03);
+        }
+        .btn.logout-btn:active {
+            transform: scale(0.97);
+        }
+    </style>
+</head>
+<body>
+<header class="site-header">
+    <div class="logo-area">
+        <div class="logo-circle">GT</div>
+        <div class="logo-text">
+            <h1>GreenTech Solutions</h1>
+            <p>Sustainable Living Products &amp; Services</p>
+            <p>Logged in as: <span id="user-display"></span></p>
+            <!-- Removed old logout button from here -->
+            <!-- <button onclick="logout()">Log Out</button> -->
+        </div>
+    </div>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#calculator">Impact Calculator</a></li>
+            <li><a href="#forums">Community Forums</a></li>
+            <li><a href="#tips">Eco-Friendly Tips</a></li>
+            <li><a href="#consultations">Consultations</a></li>
+        </ul>
+    </nav>
+
+    <!-- Auth area on the RIGHT -->
+    <nav class="auth-nav">
+        <!-- Shown when NOT logged in -->
+        <a id="login-btn" href="login.html" class="btn secondary small">Log In</a>
+        <a id="signup-btn" href="signup.html" class="btn primary small">Sign Up</a>
+
+        <!-- Shown when logged in -->
+        <button id="logout-btn" class="btn logout-btn hidden" type="button" onclick="logout()">Log Out</button>
+    </nav>
+</header>
+
+<section id="hero" class="hero">
+    <div class="hero-content">
+        <h2>Track, Learn, and Act for a Greener Future</h2>
+        <p>
+            Use our interactive tools to understand your environmental footprint, connect with a like-minded community,
+            and discover practical ways to live more sustainably.
+        </p>
+        <div class="hero-actions">
+            <a href="#calculator" class="btn primary">Start Impact Calculator</a>
+            <a href="#forums" class="btn secondary">Join the Community</a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-card">
+                <span class="stat-number" id="stat-users">3,482</span>
+                <span class="stat-label">Active Members</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="stat-posts">12,904</span>
+                <span class="stat-label">Forum Posts</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="stat-tips">240+</span>
+                <span class="stat-label">Eco Tips Shared</span>
+            </div>
+        </div>
+    </div>
+    <div class="hero-visual">
+        <div class="planet">
+            <div class="orbit orbit-1"></div>
+            <div class="orbit orbit-2"></div>
+            <div class="leaf leaf-1"></div>
+            <div class="leaf leaf-2"></div>
+            <div class="leaf leaf-3"></div>
+        </div>
+        <p class="hero-caption">Visualising your impact—one habit at a time.</p>
+    </div>
+</section>
+
+<section id="calculator" class="section section-alt">
+    <div class="section-header">
+        <h2>Environmental Impact Calculator</h2>
+        <p>Input your daily habits to estimate your personal eco-score and see where you can improve.</p>
+    </div>
+    <div class="calculator-grid">
+        <form id="impactForm" class="card calculator-form">
+            <h3>Your Daily Habits</h3>
+
+            <label for="transportMode">Daily Transport Mode</label>
+            <select id="transportMode" name="transportMode" required>
+                <option value="">Select...</option>
+                <option value="walking">Walking / Cycling</option>
+                <option value="public">Public Transport</option>
+                <option value="electric">Electric Car / Scooter</option>
+                <option value="car">Petrol / Diesel Car</option>
+            </select>
+
+            <label for="energyUsage">Home Energy Usage (kWh per day)</label>
+            <input type="number" id="energyUsage" name="energyUsage" min="0" step="0.1" required>
+
+            <label for="waterUsage">Water Usage (litres per day)</label>
+            <input type="number" id="waterUsage" name="waterUsage" min="0" step="1" required>
+
+            <label for="wasteKg">Waste Generated (kg per day)</label>
+            <input type="number" id="wasteKg" name="wasteKg" min="0" step="0.1" required>
+
+            <button type="submit" class="btn primary full-width">Calculate Eco Score</button>
+        </form>
+
+        <div class="card calculator-result">
+            <h3>Your Eco Score</h3>
+            <div class="score-circle" id="scoreCircle">
+                <span id="ecoScoreValue">–</span>
+            </div>
+            <p id="ecoScoreLabel" class="score-label">Complete the form to see your score.</p>
+
+            <div class="score-bars">
+                <div class="score-bar">
+                    <span>Transport</span>
+                    <div class="bar-track">
+                        <div class="bar-fill" id="barTransport"></div>
+                    </div>
+                </div>
+                <div class="score-bar">
+                    <span>Energy</span>
+                    <div class="bar-track">
+                        <div class="bar-fill" id="barEnergy"></div>
+                    </div>
+                </div>
+                <div class="score-bar">
+                    <span>Water</span>
+                    <div class="bar-track">
+                        <div class="bar-fill" id="barWater"></div>
+                    </div>
+                </div>
+                <div class="score-bar">
+                    <span>Waste</span>
+                    <div class="bar-track">
+                        <div class="bar-fill" id="barWaste"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="score-tip" id="scoreTip">
+                Enter your data to receive personalised suggestions.
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="forums" class="section">
+    <div class="section-header">
+        <h2>Community Forums</h2>
+        <p>Share your experiences, ask questions, and support others on their sustainability journey.</p>
+    </div>
+
+    <div class="forums-layout">
+        <aside class="card forum-categories">
+            <h3>Categories</h3>
+            <ul id="forumCategories">
+                <li class="active" data-category="home">Home &amp; Energy</li>
+                <li data-category="transport">Transport &amp; Travel</li>
+                <li data-category="food">Food &amp; Lifestyle</li>
+                <li data-category="products">Eco Products &amp; Reviews</li>
+            </ul>
+            <p class="forum-note">Moderated for respectful, constructive discussion.</p>
+        </aside>
+
+        <div class="card forum-threads">
+            <div class="forum-threads-header">
+                <h3 id="forumTitle">Home &amp; Energy</h3>
+                <button id="newThreadToggle" class="btn secondary small">Start New Thread</button>
+            </div>
+
+            <form id="newThreadForm" class="new-thread-form hidden">
+                <input type="text" id="threadTitle" placeholder="Thread title" required>
+                <textarea id="threadBody" rows="3" placeholder="What would you like to discuss?" required></textarea>
+                <button type="submit" class="btn primary small">Post Thread</button>
+            </form>
+
+            <ul id="threadList" class="thread-list">
+                <!-- Threads populated by JS -->
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="tips" class="section section-alt">
+    <div class="section-header">
+        <h2>Eco-Friendly Tips</h2>
+        <p>Practical advice you can apply today to reduce your environmental impact.</p>
+    </div>
+
+    <div class="tips-controls">
+        <label for="tipFilter">Filter by area:</label>
+        <select id="tipFilter">
+            <option value="all">All</option>
+            <option value="home">Home</option>
+            <option value="transport">Transport</option>
+            <option value="water">Water</option>
+            <option value="waste">Waste</option>
+        </select>
+        <button id="randomTipBtn" class="btn secondary small">Show Random Tip</button>
+    </div>
+
+    <div id="tipsGrid" class="tips-grid">
+        <!-- Tips populated by JS -->
+    </div>
+
+    <div id="highlightTip" class="highlight-tip card hidden">
+        <h3>Highlighted Tip</h3>
+        <p id="highlightTipText"></p>
+    </div>
+</section>
+
+<section id="consultations" class="section">
+    <div class="section-header">
+        <h2>Online Consultations</h2>
+        <p>Book a session with our sustainability advisors to create a personalised action plan.</p>
+    </div>
+
+    <div class="consult-grid">
+        <div class="card">
+            <h3>Why Book a Consultation?</h3>
+            <ul class="checklist">
+                <li>Personalised review of your environmental impact.</li>
+                <li>Guidance on choosing eco-friendly products.</li>
+                <li>Support with setting realistic sustainability goals.</li>
+                <li>Follow-up resources and community recommendations.</li>
+            </ul>
+        </div>
+        <form id="consultForm" class="card consult-form">
+            <h3>Request a Consultation</h3>
+            <label for="consultName">Name</label>
+            <input type="text" id="consultName" required>
+
+            <label for="consultEmail">Email</label>
+            <input type="email" id="consultEmail" required>
+
+            <label for="consultFocus">Main area of focus</label>
+            <select id="consultFocus" required>
+                <option value="">Select...</option>
+                <option value="home">Home &amp; Energy</option>
+                <option value="transport">Transport</option>
+                <option value="lifestyle">Lifestyle &amp; Habits</option>
+                <option value="products">Eco Products</option>
+            </select>
+
+            <label for="consultMessage">Brief description</label>
+            <textarea id="consultMessage" rows="3" required></textarea>
+
+            <button type="submit" class="btn primary full-width">Submit Request</button>
+            <p id="consultFeedback" class="form-feedback"></p>
+        </form>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-left">
+        <h3>GreenTech Solutions</h3>
+        <p>Empowering sustainable living through technology, community, and practical action.</p>
+    </div>
+    <div class="footer-right">
+        <p>&copy; <span id="year"></span> GreenTech Solutions. All rights reserved.</p>
+        <p class="footer-links">
+            <a href="#hero">Back to top</a>
+        </p>
+    </div>
+</footer>
+
+<!-- Minimal inline JS to toggle header auth UI and handle logout -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+
+    const loginBtn = document.getElementById('login-btn');
+    const signupBtn = document.getElementById('signup-btn');
+    const logoutBtn = document.getElementById('logout-btn');
+    const userDisplay = document.getElementById('user-display');
+
+    if (loggedInUser) {
+      if (loginBtn) loginBtn.classList.add('hidden');
+      if (signupBtn) signupBtn.classList.add('hidden');
+      if (logoutBtn) logoutBtn.classList.remove('hidden');
+      if (userDisplay) userDisplay.textContent = loggedInUser;
+    } else {
+      if (loginBtn) loginBtn.classList.remove('hidden');
+      if (signupBtn) signupBtn.classList.remove('hidden');
+      if (logoutBtn) logoutBtn.classList.add('hidden');
+      if (userDisplay) userDisplay.textContent = '';
+    }
+
+    // Optional: Set the year in the footer
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+  });
+
+  // Logout handler
+  function logout() {
+    localStorage.removeItem('loggedInUser');
+    // Optionally show/hide immediately (before redirect)
+    const loginBtn = document.getElementById('login-btn');
+    const signupBtn = document.getElementById('signup-btn');
+    const logoutBtn = document.getElementById('logout-btn');
+    if (loginBtn && signupBtn && logoutBtn) {
+      loginBtn.classList.remove('hidden');
+      signupBtn.classList.remove('hidden');
+      logoutBtn.classList.add('hidden');
+    }
+    window.location.href = 'login.html';
+  }
+</script>
+
+<!-- Your existing app logic -->
+<script src="static/app.js"></script>
+</body>
+</html>

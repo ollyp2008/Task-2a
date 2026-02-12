@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dirt Cycles | Your Cart</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container bar">
+    <a href="index.html" class="brand">
+      <img src="static/img/logo-dirt-cycles.svg" alt="">
+      <span>Dirt Cycles</span>
+    </a>
+
+    <nav class="nav">
+      <a href="index.html">Guide</a>
+      <a href="shop.html">Shop Bikes</a>
+      <a href="cart.html" aria-current="page">Cart</a>
+    </nav>
+
+    <a href="cart.html" class="cart-chip" aria-label="View cart">
+        🛒 <span id="cartCount">0</span>
+    </a>
+  </div>
+</header>
+
+<main id="main" class="container">
+
+  <section class="hero">
+    <h1>Your Shopping Cart</h1>
+    <p class="lead">Review your chosen bikes, update quantities, or proceed to checkout.</p>
+  </section>
+
+  <section class="section card">
+    <h2>Cart Items</h2>
+
+    <div id="cartContainer" class="cart-list" aria-live="polite"></div>
+
+    <div class="cart-summary">
+      <h3>Total</h3>
+      <p id="cartTotal" class="price">£0</p>
+    </div>
+
+    <div class="actions">
+      <button id="clearCart" class="ghost">Clear Cart</button>
+      <button id="checkoutBtn">Proceed to Checkout</button>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© <span id="year"></span> Dirt Cycles — Built to Send.</p>
+  </div>
+</footer>
+
+<script src="static/app.js"></script>
+<script src="static/cart.js"></script>
+
+</body>
+</html>

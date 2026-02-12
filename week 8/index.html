@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DreamTrips Honeymoon Enquiry</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+
+  <a class="skip-link" href="#mainContent">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <h1>DreamTrips Honeymoon Enquiry</h1>
+      <p class="lead">
+        Learn by building small examples first. Then apply the patterns to your own form.
+      </p>
+    </div>
+  </header>
+
+  <main id="mainContent" class="container">
+
+    <!-- ===================== -->
+    <!-- LEARN AREA (unchanged) -->
+    <!-- ===================== -->
+    <section class="card" aria-labelledby="learnHeading">
+      <h2 id="learnHeading">Learn Area: Mini Examples</h2>
+      <p class="lead">
+        Each mini example shows the correct HTML pattern (label, input, error area) and lets you run one validation check.
+        Test each example with a PASS and a FAIL and record it in your testing log.
+      </p>
+
+      <!-- A) Presence -->
+      <section class="card subtle" aria-labelledby="presenceHeading">
+        <h3 id="presenceHeading">A) Presence check example</h3>
+
+        <div class="field">
+          <label for="learnPresence">Full name (example)</label>
+          <input id="learnPresence" type="text" aria-describedby="learnPresenceHint">
+          <p id="learnPresenceHint" class="hint">Try leaving this blank, then type a name.</p>
+          <p id="learnPresenceError" class="error" aria-live="polite"></p>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="btnLearnPresence">Run presence check</button>
+        </div>
+      </section>
+
+      <!-- B) Digit -->
+      <section class="card subtle" aria-labelledby="digitsHeading">
+        <h3 id="digitsHeading">B) Digit check example</h3>
+
+        <div class="field">
+          <label for="learnDigits">Phone number (example)</label>
+          <input id="learnDigits" type="tel" aria-describedby="learnDigitsHint">
+          <p id="learnDigitsHint" class="hint">Try digits only, then try letters or spaces.</p>
+          <p id="learnDigitsError" class="error" aria-live="polite"></p>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="btnLearnDigits">Run digit check</button>
+        </div>
+      </section>
+
+      <!-- C) Email format -->
+      <section class="card subtle" aria-labelledby="formatHeading">
+        <h3 id="formatHeading">C) Format check example (email)</h3>
+
+        <div class="field">
+          <label for="learnFormat">Email address (example)</label>
+          <input id="learnFormat" type="email" aria-describedby="learnFormatHint">
+          <p id="learnFormatHint" class="hint">Try name@example.com, then try missing the @ symbol.</p>
+          <p id="learnFormatError" class="error" aria-live="polite"></p>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="btnLearnFormat">Run format check</button>
+        </div>
+      </section>
+
+      <!-- D) Range -->
+      <section class="card subtle" aria-labelledby="rangeHeading">
+        <h3 id="rangeHeading">D) Range check example (1 to 5)</h3>
+
+        <div class="field">
+          <label for="learnRange">Rating (example)</label>
+          <input id="learnRange" type="number" inputmode="numeric" aria-describedby="learnRangeHint">
+          <p id="learnRangeHint" class="hint">Try 0, then 3, then 6.</p>
+          <p id="learnRangeError" class="error" aria-live="polite"></p>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="btnLearnRange">Run range check</button>
+        </div>
+      </section>
+
+      <!-- E) Length -->
+      <section class="card subtle" aria-labelledby="lengthHeading">
+        <h3 id="lengthHeading">E) Length check example (max 20 characters)</h3>
+
+        <div class="field">
+          <label for="learnLength">Special requests (example)</label>
+          <textarea id="learnLength" rows="3" aria-describedby="learnLengthHint"></textarea>
+          <p id="learnLengthHint" class="hint">Try a short message, then try a message longer than 20 characters.</p>
+          <p id="learnLengthError" class="error" aria-live="polite"></p>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="btnLearnLength">Run length check</button>
+        </div>
+      </section>
+
+      <section class="card subtle">
+        <p class="hint">
+          Minimum evidence: record at least one PASS and one FAIL for each mini example (A to E).
+        </p>
+      </section>
+    </section>
+
+    <!-- ===================== -->
+    <!-- APPLY AREA (UPDATED) -->
+    <!-- ===================== -->
+    <section class="card" aria-labelledby="applyHeading">
+      <h2 id="applyHeading">DreamTrips Honeymoon Enquiry Form</h2>
+      <p class="lead">
+        Please complete the details below to begin your personalised DreamTrips honeymoon enquiry.
+      </p>
+
+      <form id="enquiryForm" novalidate>
+
+        <!-- CUSTOMER DETAILS -->
+        <fieldset class="card subtle">
+          <legend>Customer Details</legend>
+
+          <div class="field">
+            <label for="custFirstName">First name</label>
+            <input id="custFirstName" type="text" aria-describedby="custFirstNameError">
+            <p id="custFirstNameError" class="error" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="custLastName">Surname</label>
+            <input id="custLastName" type="text" aria-describedby="custLastNameError">
+            <p id="custLastNameError" class="error" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="custDOB">Date of birth</label>
+            <input id="custDOB" type="date" aria-describedby="custDOBError">
+            <p id="custDOBError" class="error" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="custEmail">Email address</label>
+            <input id="custEmail" type="email" aria-describedby="custEmailError">
+            <p id="custEmailError" class="error" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="custPhone">Phone number</label>
+            <input id="custPhone" type="tel" aria-describedby="custPhoneError">
+            <p id="custPhoneError" class="error" aria-live="polite"></p>
+          </div>
+
+        </fieldset>
+
+        <!-- FLIGHT DETAILS -->
+        <fieldset class="card subtle">
+          <legend>Flight Details</legend>
+
+          <div class="field">
+            <label for="fromLocation">Flying from</label>
+            <input id="fromLocation" type="text" aria-describedby="fromLocationError">
+            <p id="fromLocationError" class="error" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="toLocation">Flying to</label>
+            <input id="toLocation" type="text" aria-describedby="toLocationError">
+            <p id="toLocationError" class="error" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="flightDate">Flight date</label>
+            <input id="flightDate" type="date" aria-describedby="flightDateError">
+            <p id="flightDateError" class="error" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="flightTime">Flight time</label>
+            <input id="flightTime" type="time" aria-describedby="flightTimeError">
+            <p id="flightTimeError" class="error" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="flightType">Type of flight</label>
+            <select id="flightType" aria-describedby="flightTypeError">
+              <option value="">Select a flight type...</option>
+              <option>Economy</option>
+              <option>Premium Economy</option>
+              <option>Business Class</option>
+              <option>First Class</option>
+              <option>Private Jet Charter</option>
+            </select>
+            <p id="flightTypeError" class="error" aria-live="polite"></p>
+          </div>
+
+        </fieldset>
+
+        <!-- BUTTONS -->
+        <div class="actions">
+          <button type="submit">Submit Enquiry</button>
+          <button type="reset" class="ghost">Clear</button>
+        </div>
+
+        <!-- STATUS -->
+        <section class="card subtle">
+          <p id="formStatus" class="status" aria-live="polite"></p>
+        </section>
+
+        <!-- OPTIONAL SUMMARY -->
+        <section class="card subtle">
+          <h3>Enquiry Summary</h3>
+          <p id="dynamicSummary" class="summary" aria-live="polite"></p>
+        </section>
+
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>DreamTrips Honeymoon. Student practice build.</p>
+    </div>
+  </footer>
+
+  <script src="static/app.js"></script>
+
+</body>
+</html>

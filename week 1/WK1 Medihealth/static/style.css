@@ -1,0 +1,272 @@
+
+/* =========================================
+   MediHealth — Portrait Form Centered
+   - Single-column card, fixed max-width
+   - Centered vertically & horizontally
+   - Light theme, high contrast, no edge-to-edge
+   ========================================= */
+
+/* ---- Tokens ---- */
+:root {
+  --bg: #ffffff;
+  --panel: #fafafa;
+  --surface: #ffffff;
+
+  --text: #000000;
+  --text-muted: #3a3a3a;
+  --placeholder: #5a5a5a;
+
+  --border: #cfcfcf;
+  --border-strong: #9e9e9e;
+  --divider: #e8e8e8;
+
+  --primary: #2f3a3a;   /* charcoal (button) */
+  --accent: #20b293;    /* mint accent */
+  --danger: #a3212a;
+
+  --focus: #2bbf8a;
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --shadow-sm: 0 1px 4px rgba(0,0,0,0.08);
+
+  --font-body: "Segoe UI", system-ui, -apple-system, Roboto, Arial, "Noto Sans";
+  --font-size: 18px;
+  --lh: 1.7;
+
+  /* Key setting: portrait card width */
+  --portrait-max: 520px; /* change to 480–600px to taste */
+}
+
+/* ---- Base ---- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size);
+  line-height: var(--lh);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---- Centering the form in the middle ---- */
+.center-screen {
+  min-height: 100vh;           /* full viewport height */
+  display: flex;
+  align-items: center;         /* vertical center */
+  justify-content: center;     /* horizontal center */
+  padding: 16px;               /* small gutter on tiny screens */
+}
+
+/* ---- Portrait card (fixed width) ---- */
+.portrait-card {
+  width: 100%;
+  max-width: var(--portrait-max);     /* prevents full-width stretch */
+  background: var(--panel);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 24px;
+}
+
+/* ---- Header ---- */
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.logo-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: #eafff6;
+  color: #000;
+  font-weight: 900;
+  display: grid;
+  place-items: center;
+  border: 2px solid #000;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.9rem, 4.8vw, 2.3rem);
+  font-weight: 900;
+  letter-spacing: 0.2px;
+}
+
+.subtitle {
+  margin: 6px 0 12px 0;
+  color: var(--text-muted);
+}
+
+/* ---- Divider ---- */
+.divider {
+  height: 1px;
+  background: var(--divider);
+  margin: 18px 0;
+}
+
+/* ---- Form (single column, portrait) ---- */
+form#appointment-form {
+  display: grid;
+  gap: 16px;                   /* vertical spacing between fields */
+}
+
+.form-field {                 /* wrap each label/input pair in this */
+  display: grid;
+  gap: 8px;
+}
+
+label {
+  font-weight: 900;
+  color: var(--text);
+  letter-spacing: 0.3px;
+  font-size: 1.05rem;
+}
+
+.required::after {
+  content: "*";
+  margin-left: 6px;
+  color: var(--danger);
+  font-weight: 900;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="datetime-local"] {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1.06rem;
+  line-height: 1.55;
+  outline: none;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+input::placeholder { color: var(--placeholder); }
+
+input:focus {
+  border-color: #000;
+  box-shadow: 0 0 0 4px rgba(43,191,138,0.35); /* high-visibility mint */
+}
+input:hover { border-color: var(--border-strong); }
+
+/* ---- Submit button (full width within the card) ---- */
+.actions { margin-top: 6px; display: grid; }
+
+button[type="submit"] {
+  width: 100%;
+  min-height: 48px;
+  appearance: none;
+  border: 2px solid #000;
+  border-radius: var(--radius-sm);
+  background: var(--primary);
+  color: #fff;
+  font-weight: 900;
+  font-size: 1.06rem;
+  padding: 14px 18px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  transition: transform 100ms ease, box-shadow 140ms ease, filter 140ms ease;
+}
+
+button[type="submit"]:hover { transform: translateY(-1px); filter: brightness(1.03); }
+button[type="submit"]:active { transform: translateY(0); box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+
+/* ---- Appointments list card (also portrait width, centered) ---- */
+.section-title {
+  margin: 22px 0 10px;
+  font-size: clamp(1.3rem, 3.8vw, 1.6rem);
+  font-weight: 900;
+  text-align: center;
+}
+
+.appointments-card {
+  width: 100%;
+  max-width: var(--portrait-max);
+  background: var(--panel);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 18px;
+}
+
+#appointments-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.appointment-item {
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  padding: 14px 16px;
+  display: grid;
+  gap: 6px;
+}
+
+.appointment-title { font-weight: 900; font-size: 1.05rem; color: var(--text); }
+.appointment-meta  { color: var(--text-muted); }
+
+/* ---- Accessibility ---- */
+:focus-visible {
+  outline: 4px solid rgba(43,191,138,0.7);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+.sr-only, .visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden; clip: rect(1px,1px,1px,1px);
+  white-space: nowrap;
+}
+
+/* Minimum tap target */
+button, input[type="button"], input[type="submit"] { min-height: 44px; }
+
+/* ---- Print (A4 portrait) ---- */
+@media print {
+  @page { size: A4 portrait; margin: 12mm; }
+  .center-screen { align-items: start; }
+  .portrait-card, .appointments-card {
+    max-width: 100%;
+    border: 1px solid #000;
+    box-shadow: none;
+    padding: 12px;
+  }
+  .logo-badge, button { display: none !important; }
+}
+.logo-badge {
+  width: 50px;              /* size of the cube */
+  height: 50px;
+  background-color: #d4d6d5; /* green */
+  display: flex;             /* center contents */
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;        /* optional rounded corners */
+  margin-right: 10px;        /* spacing before the title */
+}
+
+.logo-badge img {
+  max-width: 100%;
+  max-height: 100%;
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GreenTech Solutions: Sustainability Tracker</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <h1>GreenTech Solutions</h1>
+    <p class="tagline">Track habits, calculate impact, and get eco tips.</p>
+  </header>
+
+  <main class="container">
+
+    <!-- ===================================================== -->
+    <!-- PRACTICE AREA: Bland section for learning JavaScript   -->
+    <!-- ===================================================== -->
+    <section class="card">
+      <h2>JavaScript Practice Area</h2>
+      <p class="help-text">
+        This section is only for learning JavaScript basics. It is not part of the final solution.
+      </p>
+
+      <div class="grid">
+        <div class="field">
+          <label for="demoNumber">Enter a number</label>
+          <input type="text" id="demoNumber" placeholder="Example: 7">
+          <p class="field-hint">You will validate this input using JavaScript.</p>
+
+          <button id="demoBtn" type="button">Check number</button>
+
+          <p id="demoResult" class="output-box">Waiting...</p>
+        </div>
+
+        <div class="field field-wide">
+          <label for="demoText">Text box (max 50 characters)</label>
+          <textarea id="demoText" rows="3" maxlength="50" placeholder="Type anything here..."></textarea>
+          <p class="field-hint">
+            Characters used: <span id="demoCharCount">0</span>/50
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- GREENTECH AREA: Students apply the same patterns later -->
+    <!-- ===================================================== -->
+    <section class="card">
+      <h2>Environmental Impact Calculator</h2>
+      <p class="help-text">
+        Complete today’s log. Later you will use JavaScript to add input handling and user feedback.
+      </p>
+
+      <form id="impactForm" novalidate>
+        <div class="grid">
+          <div class="field">
+            <label for="fullName">Your name</label>
+            <input type="text" id="fullName" name="fullName" autocomplete="name">
+            <p class="field-hint">Example: Olly</p>
+          </div>
+
+          <div class="field">
+            <label for="travelMode">Travel mode today</label>
+            <select id="travelMode" name="travelMode">
+              <option value="">Choose one</option>
+              <option value="walk">Walk</option>
+              <option value="cycle">Cycle</option>
+              <option value="bus">Bus</option>
+              <option value="car">Car</option>
+            </select>
+            <p class="field-hint">Choose the option used most today.</p>
+          </div>
+
+          <div class="field">
+            <label for="carMiles">Car miles today</label>
+            <input type="number" id="carMiles" name="carMiles" min="0" step="1" value="0">
+            <p class="field-hint">If you did not travel by car, leave as 0.</p>
+          </div>
+
+          <div class="field">
+            <label for="energyKwh">Energy used today (kWh)</label>
+            <input type="number" id="energyKwh" name="energyKwh" min="0" step="1" value="0">
+            <p class="field-hint">If unsure, estimate. Example: 8</p>
+          </div>
+
+          <div class="field field-wide">
+            <label class="checkbox-line">
+              <input type="checkbox" id="recycled" name="recycled">
+              I recycled today
+            </label>
+            <p class="field-hint">Tick if you recycled anything today.</p>
+          </div>
+
+          <div class="field field-wide">
+            <label for="tipCategory">Tip category</label>
+            <select id="tipCategory" name="tipCategory">
+              <option value="">Choose one</option>
+              <option value="travel">Travel</option>
+              <option value="energy">Energy</option>
+              <option value="waste">Waste</option>
+            </select>
+            <p class="field-hint">This controls the type of eco tip you will receive.</p>
+          </div>
+
+          <div class="field field-wide">
+            <label for="forumPost">Community forum draft (optional)</label>
+            <textarea id="forumPost" name="forumPost" rows="4" maxlength="200"
+              placeholder="Share a sustainability tip or question (max 200 characters)"></textarea>
+            <p class="field-hint">
+              <span id="charCount">0</span>/200 characters
+            </p>
+          </div>
+        </div>
+
+        <div class="button-row">
+          <button type="submit" id="calcBtn">Calculate impact</button>
+          <button type="button" id="clearBtn" class="secondary">Clear form</button>
+        </div>
+      </form>
+
+      <div id="messageArea" class="message" aria-live="polite"></div>
+    </section>
+
+    <section class="card">
+      <h2>Your Results</h2>
+      <div class="results-grid">
+        <div class="result-box">
+          <h3>Impact score</h3>
+          <p id="impactScore">No score yet</p>
+        </div>
+
+        <div class="result-box">
+          <h3>Suggested eco tip</h3>
+          <p id="ecoTip">No tip yet</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>GreenTech Solutions prototype starter.</p>
+  </footer>
+
+  <script src="static/app.js"></script>
+</body>
+</html>

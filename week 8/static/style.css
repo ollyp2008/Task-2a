@@ -1,0 +1,458 @@
+/* ===========================================================
+   ULTRA-LUXURY THEME — OBSIDIAN + PEARL + PLATINUM
+   Satin black • brushed platinum • soft pearl reflections
+   Engineered for your exact HTML/JS structure
+   =========================================================== */
+
+/* ---------------------------------------------
+   CORE TOKENS (COLORS • SHADOWS • GRADIENTS)
+   --------------------------------------------- */
+:root {
+  /* Base colours */
+  --obsidian: #0b0b0c;
+  --obsidian-soft: #101012;
+  --onyx: #151517;
+  --onyx-glass: rgba(255,255,255,0.06);
+
+  /* Metallics */
+  --platinum: #d8d8d8;
+  --platinum-soft: #cfcfcf;
+  --platinum-dark: #a7a7a7;
+
+  /* Pearl tones (reflection) */
+  --pearl: #f3f2ef;
+  --pearl-glow: rgba(255,255,255,0.18);
+  --pearl-highlight: rgba(255,255,255,0.35);
+
+  /* Borders */
+  --border: 1px solid rgba(255,255,255,0.14);
+  --border-strong: 1px solid rgba(255,255,255,0.28);
+
+  /* Shadows (luxury depth) */
+  --shadow-sm: 0 6px 16px rgba(0,0,0,0.28);
+  --shadow: 0 16px 38px rgba(0,0,0,0.45);
+  --shadow-lg: 0 26px 70px rgba(0,0,0,0.55);
+
+  /* Rounding */
+  --radius: 14px;
+  --radius-lg: 22px;
+
+  /* Glow accents */
+  --platinum-ring: 0 0 0 3px rgba(255,255,255,0.25);
+  --pearl-ring: 0 0 0 5px rgba(255,255,255,0.14);
+
+  /* Typography */
+  --text: #f5f4f2;
+  --text-muted: #bdb8ae;
+
+  /* Focus */
+  --focus: 3px solid var(--platinum);
+}
+
+/* ---------------------------------------------
+   GLOBAL BASE
+   --------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Georgia", serif;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(255,255,255,0.10), transparent 60%),
+    radial-gradient(circle at 85% 0%, rgba(255,255,255,0.06), transparent 60%),
+    linear-gradient(180deg, var(--obsidian), var(--obsidian-soft));
+  color: var(--text);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+/* Subtle pearl text selection */
+::selection {
+  background: var(--pearl-highlight);
+  color: #111;
+}
+
+/* ---------------------------------------------
+   LAYOUT
+   --------------------------------------------- */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ---------------------------------------------
+   SKIP LINK
+   --------------------------------------------- */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 10px;
+  padding: 10px 14px;
+  background: var(--onyx);
+  color: var(--pearl);
+  border-radius: 999px;
+  border: var(--border);
+  z-index: 999;
+}
+.skip-link:focus {
+  left: 10px;
+  outline: var(--focus);
+}
+
+/* ---------------------------------------------
+   HEADER / FOOTER — PLATINUM SATIN PANELS
+   --------------------------------------------- */
+.site-header,
+.site-footer {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03)),
+    var(--onyx);
+  backdrop-filter: blur(14px) saturate(160%);
+  border-bottom: var(--border);
+  padding: 22px 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.site-footer {
+  border-top: var(--border);
+  border-bottom: none;
+  margin-top: 60px;
+}
+
+/* ---------------------------------------------
+   HEADINGS — PLATINUM & PEARL BLEND
+   --------------------------------------------- */
+
+h1 {
+  font-size: 2.6rem;
+  margin: 0 0 10px;
+  background: linear-gradient(
+    90deg,
+    var(--platinum-soft),
+    var(--pearl),
+    var(--platinum)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  font-size: 1.9rem;
+  margin-bottom: 10px;
+  color: var(--pearl);
+}
+
+h3 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  color: var(--platinum);
+}
+
+.lead {
+  margin-top: 4px;
+  color: var(--text-muted);
+}
+
+/* ---------------------------------------------
+   CARDS — SATIN BLACK • PEARL REFLECTION
+   --------------------------------------------- */
+.card {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
+    var(--onyx);
+  backdrop-filter: blur(18px) saturate(180%);
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 26px;
+  box-shadow: var(--shadow);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* soft pearl sheen line on top */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--pearl-highlight),
+    transparent
+  );
+  opacity: .35;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(255,255,255,0.22);
+}
+
+/* Subtle card version */
+.card.subtle {
+  border: 1px dashed rgba(255,255,255,0.18);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)),
+    var(--obsidian-soft);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---------------------------------------------
+   FORM FIELDS — VELVET BLACK + PEARL RING
+   --------------------------------------------- */
+.field {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 6px;
+  display: block;
+  color: var(--pearl);
+  letter-spacing: 0.03em;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)),
+    var(--onyx);
+  border: 1px solid rgba(255,255,255,0.22);
+  color: var(--pearl);
+  font-size: 1rem;
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--platinum-soft);
+  box-shadow: var(--pearl-ring);
+}
+
+/* ---------------------------------------------
+   HINTS / ERRORS
+   --------------------------------------------- */
+.hint {
+  margin-top: 6px;
+  color: var(--text-muted);
+}
+
+.error {
+  margin-top: 6px;
+  color: #d88080; /* pearl-rose error (no blue) */
+  font-weight: bold;
+}
+
+/* ---------------------------------------------
+   BUTTONS — BLACK-BADGE LUXURY
+   --------------------------------------------- */
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 12px 18px;
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, #1a1a1c, #0f0f10);
+  color: var(--pearl);
+  border: 1px solid rgba(255,255,255,0.22);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform .2s ease, box-shadow .25s ease, border-color .2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: var(--platinum-soft);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---------------------------------------------
+   STATUS & SUMMARY
+   --------------------------------------------- */
+.status {
+  font-weight: bold;
+  color: var(--pearl);
+}
+
+.summary {
+  font-size: 1.06rem;
+  color: var(--pearl);
+}
+
+/* ---------------------------------------------
+   REDUCED MOTION SUPPORT
+   --------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+  html { scroll-behavior: auto; }
+}
+
+
+/* ===========================================================
+   ULTRA-LUXURY: ANIMATED PLATINUM / PEARL REFLECTIONS
+   Adds satin-sheen motion to cards + buttons
+   =========================================================== */
+
+/* ------------------------------
+   Keyframe: slow sideways sweep
+   ------------------------------ */
+@keyframes pearlSweep {
+  0% {
+    opacity: 0;
+    transform: translateX(-120%) skewX(-20deg);
+  }
+  30% {
+    opacity: 0.22;
+  }
+  50% {
+    opacity: 0.38;
+  }
+  70% {
+    opacity: 0.22;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(160%) skewX(-20deg);
+  }
+}
+
+/* ------------------------------
+   PREMIUM CARD REFLECTION
+   ------------------------------ */
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 90px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.18),
+    rgba(255, 255, 255, 0.35),
+    rgba(255,255,255,0.18),
+    transparent
+  );
+  opacity: 0;
+  pointer-events: none;
+  animation: pearlSweep 6s ease-in-out infinite;
+  animation-delay: calc(var(--delay, 0s));
+}
+
+/* Adds a slight stagger so not all cards shimmer together */
+.card:nth-of-type(2)::after { --delay: 1.2s; }
+.card:nth-of-type(3)::after { --delay: 2.4s; }
+.card:nth-of-type(4)::after { --delay: 3.6s; }
+
+/* ------------------------------
+   BUTTON REFLECTION SWEEP
+   ------------------------------ */
+button {
+  position: relative;
+  overflow: hidden;
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 70px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.25),
+    rgba(255,255,255,0.45),
+    rgba(255,255,255,0.25),
+    transparent
+  );
+  opacity: 0;
+  pointer-events: none;
+  animation: pearlSweep 4s ease-in-out infinite;
+}
+
+/* On hover, intensify reflection slightly */
+button:hover::after {
+  animation-duration: 2.6s;
+  opacity: 0.12;
+}
+
+/* ------------------------------
+   OPTIONAL: INPUT REFLECTION
+   ------------------------------ */
+input,
+textarea,
+select {
+  position: relative;
+  z-index: 1;
+}
+
+input::after,
+textarea::after,
+select::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -120%;
+  width: 80px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.10),
+    rgba(255,255,255,0.18),
+    transparent
+  );
+  pointer-events: none;
+  animation: pearlSweep 7s ease-in-out infinite;
+  opacity: 0;
+}
+
+input:focus::after,
+textarea:focus::after,
+select:focus::after {
+  opacity: .26;
+  animation-duration: 4s;
+}
