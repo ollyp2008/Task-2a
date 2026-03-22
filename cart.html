@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart – Necessities Direct</title>
+  <link rel="stylesheet" href="static/style.css">
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="static/supabaseClient.js" defer></script>
+  <script src="static/cart.js" defer></script>
+</head>
+<body>
+
+<header class="nd-header">
+  <div class="logo">Necessities Direct</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="tracking.html">Tracking</a>
+    <a href="account.html">My Account</a>
+    <a href="loyalty.html">Loyalty</a>
+    <a href="login.html">Sign In</a>
+    <a href="signup.html">Sign Up</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+</header>
+
+<main class="cart-page">
+  <h1>Your Shopping Cart</h1>
+
+  <table id="cart-table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>Subtotal</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <div class="cart-summary">
+    <p>Total: £<span id="cart-total">0.00</span></p>
+    <button id="checkout-btn">Checkout</button>
+  </div>
+</main>
+
+<footer>
+  © <span id="year"></span> Necessities Direct. All rights reserved.
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
