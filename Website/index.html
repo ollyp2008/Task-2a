@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Necessities Direct – Simple Supermarket Shopping</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+  <header class="nd-header">
+    <div class="logo">Necessities Direct</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="tracking.html">Tracking</a>
+      <a href="account.html">My Account</a>
+      <a href="loyalty.html">Loyalty</a>
+      <a href="login.html">Sign In</a>
+      <a href="signup.html">Sign Up</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="home-hero">
+      <div class="home-hero-text">
+        <h1>Simple and Safe Supermarket Shopping</h1>
+        <p>Order your everyday essentials online with fast delivery, easy tracking, and secure checkout.</p>
+        <div class="hero-buttons">
+          <a href="shop.html" class="btn-primary">Start Shopping</a>
+          <a href="signup.html" class="btn-secondary">Create an Account</a>
+        </div>
+      </div>
+      <div class="home-hero-image">
+        <span>Groceries, fresh produce, and household items in one place.</span>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="feature-card">
+        <h3>Easy Online Grocery Shopping</h3>
+        <p>Browse categories, adjust quantities, and add items to your cart in a few clicks.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Loyalty & Savings</h3>
+        <p>Earn points on every order and redeem them for discounts on future shops.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Order Tracking</h3>
+        <p>Track your orders from checkout to delivery with our simple tracking page.</p>
+      </div>
+    </section>
+
+    <section class="stats-strip">
+      <div>
+        <strong>500K+</strong>
+        <span>Orders processed</span>
+      </div>
+      <div>
+        <strong>4.7/5</strong>
+        <span>Average customer rating</span>
+      </div>
+      <div>
+        <strong>Same-day</strong>
+        <span>Delivery in selected areas</span>
+      </div>
+      <div>
+        <strong>24/7</strong>
+        <span>Online access to your account</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Necessities Direct. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

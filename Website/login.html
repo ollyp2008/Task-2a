@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign In – Necessities Direct</title>
+  <link rel="stylesheet" href="static/style.css">
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="static/supabaseClient.js" defer></script>
+  <script src="static/auth.js" defer></script>
+</head>
+<body>
+  <header class="nd-header">
+    <div class="logo">Necessities Direct</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="tracking.html">Tracking</a>
+      <a href="account.html">My Account</a>
+      <a href="loyalty.html">Loyalty</a>
+      <a href="login.html">Sign In</a>
+      <a href="signup.html">Sign Up</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="auth-page">
+      <h1>Sign in to your account</h1>
+      <form id="login-form">
+        <label>
+          Email Address
+          <input type="email" id="login-email" required>
+        </label>
+        <label>
+          Password
+          <input type="password" id="login-password" required>
+        </label>
+        <button type="submit">Sign In</button>
+      </form>
+      <p id="login-message"></p>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Necessities Direct. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

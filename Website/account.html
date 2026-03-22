@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Account – Necessities Direct</title>
+  <link rel="stylesheet" href="static/style.css">
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="static/supabaseClient.js" defer></script>
+  <script src="static/account.js" defer></script>
+</head>
+<body>
+
+<header class="nd-header">
+  <div class="logo">Necessities Direct</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="tracking.html">Tracking</a>
+    <a href="account.html">My Account</a>
+    <a href="loyalty.html">Loyalty</a>
+    <a href="login.html">Sign In</a>
+    <a href="signup.html">Sign Up</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+</header>
+
+<main class="account-page">
+  <h1>Manage Your Account</h1>
+
+  <form id="account-form">
+
+    <label>Full Name
+      <input type="text" id="acc-fullname">
+    </label>
+
+    <label>Phone
+      <input type="text" id="acc-phone">
+    </label>
+
+    <label>Address Line 1
+      <input type="text" id="acc-address1">
+    </label>
+
+    <label>Address Line 2
+      <input type="text" id="acc-address2">
+    </label>
+
+    <label>City
+      <input type="text" id="acc-city">
+    </label>
+
+    <label>Postcode
+      <input type="text" id="acc-postcode">
+    </label>
+
+    <button type="submit">Save Changes</button>
+  </form>
+
+  <p id="account-message"></p>
+
+  <button id="logout-btn">Log Out</button>
+</main>
+
+<footer>
+  © <span id="year"></span> Necessities Direct. All rights reserved.
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
